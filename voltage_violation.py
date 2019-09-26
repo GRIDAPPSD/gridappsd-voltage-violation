@@ -104,10 +104,9 @@ class SimulationSubscriber(object):
         if self._message_count % self.message_interval == 0:
             message = json.loads(message)
             voltage_violation = {}
-            for measurements in message['message']['measurements']:
-                meas_id = measurements['measurement_mrid']
+            for meas_id in message['message']['measurements']:
                 if meas_id in self.nominal_voltage_map:
-                    mag = measurements['magnitude']
+                    mag = message['message']['measurements'][meas_id]['magnitude']
                     nv = int(self.nominal_voltage_map[meas_id])
                     puv = mag/(nv/math.sqrt(3))
                     if puv<0.95 or puv>1.05:
