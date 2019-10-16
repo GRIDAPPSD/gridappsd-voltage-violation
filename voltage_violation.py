@@ -102,7 +102,7 @@ class SimulationSubscriber(object):
 
         self._message_count += 1
         if self._message_count % self.message_interval == 0:
-            message = json.loads(message)
+            #message = json.loads(message)
             voltage_violation = {}
             for meas_id in message['message']['measurements']:
                 if meas_id in self.nominal_voltage_map:
