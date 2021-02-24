@@ -201,8 +201,7 @@ def _main():
     message_interval = 5
     sim_request = json.loads(opts.request.replace("\'",""))
     model_mrid = sim_request["power_system_config"]["Line_name"]
-    gapps = GridAPPSD(opts.simulation_id, address=utils.get_gridappsd_address(),
-                      username=utils.get_gridappsd_user(), password=utils.get_gridappsd_pass())
+    gapps = GridAPPSD(opts.simulation_id)
     nominal_voltage_dict = get_nominal_voltage(gapps, model_mrid)
     subscriber = SimulationSubscriber(opts.simulation_id, gapps, nominal_voltage_dict, message_interval)
     gapps.subscribe(listening_to_topic, subscriber)
