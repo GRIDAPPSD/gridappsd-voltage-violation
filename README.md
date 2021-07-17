@@ -1,4 +1,4 @@
-# gridappsd-voltage-violation
+# GridAPPS-D Voltage Violation Service
 
 ## Purpose
 
